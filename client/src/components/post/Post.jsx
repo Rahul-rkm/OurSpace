@@ -1,17 +1,23 @@
 import "./post.css"
-import { MoreVert } from "@mui/icons-material"
+import { MoreHoriz, Delete, Bookmark } from "@mui/icons-material"
 import { useState, useEffect, useContext } from "react"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { format } from 'timeago.js'
 import { AuthContext } from "../../context/AuthContext"
-const Post = ({ post }) => {
+const Post = ({ post, myProfile, postDelete }) => {
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     const { user: currentUser } = useContext(AuthContext)
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({})
 
+    const [optionsActive, setOptionsActive] = useState(false);
+
+    const deletePost = (e) => {
+        if (window.confirm("Do you really want to delete this post. (This can't be undone) 🔴"))
+            postDelete(post);
+    }
     useEffect(() => {
         const fetchUser = async () => {
             const urlWithProxy = `/api/users?userId=${post?.userId}`
@@ -42,6 +48,10 @@ const Post = ({ post }) => {
         setLikes(prev => isLiked ? prev - 1 : prev + 1);
         setIsLiked(prev => !prev);
     }
+
+    const toggleOptions = () => {
+        setOptionsActive(!optionsActive);
+    }
     return (
         <div className="post">
             <div className="postWrapper">
@@ -54,7 +64,15 @@ const Post = ({ post }) => {
                         <span className="postTiming">{format(post?.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
-                        <MoreVert />
+                        <MoreHoriz className="postOptionsIcon" onClick={toggleOptions} />
+                        <div className={`postOptions ${optionsActive && 'active'}`}>
+                            <div className="postOptionsList">
+                                {
+                                    myProfile && <div onClick={deletePost} className="postOptionItem"><Delete /> Delete</div>
+                                }
+                                <div className="postOptionItem"><Bookmark /> Save</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="postCenter">

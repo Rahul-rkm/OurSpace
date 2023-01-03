@@ -12,10 +12,6 @@ const Feed = ({ username }) => {
     useEffect(() => {
         const fetchPosts = async () => {
             const urlWithProxy = `/api/posts/timeline/${user._id}`
-            // const response = await fetch(urlWithProxy)
-            // const data = await response.json()
-            // console.log(data)
-            // setPosts(data)
             const response = (username) ? await axios.get(`/api/posts/profile/${username}`) : await axios.get(urlWithProxy);
             setPosts(response.data.sort((p1, p2) => {
                 return new Date(p2.createdAt) - new Date(p1.createdAt);
@@ -23,12 +19,33 @@ const Feed = ({ username }) => {
         }
         fetchPosts()
     }, [username, user._id])
+
+    const deletePost = async (postItem) => {
+        console.log(posts)
+        console.log(postItem)
+        const deleteUrl = `/api/posts/${postItem._id}`
+        try {
+            // await axios.delete(deleteUrl, data: details);
+            await axios({
+                method: 'delete',
+                url: deleteUrl,
+                data: { userId: user._id, desc: 'Deleting the post' }
+            });
+            window.location.reload()
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
     return (
         <div className="feed">
             <div className="feedWrapper">
                 {(!username || username === user.username) && <Share />}
                 {posts.map((p) => {
-                    return <Post key={p._id} post={p} />
+                    return <Post key={p._id} id={p._id} post={p}
+                        myProfile={username === user.username && true}
+                        postDelete={username === user.username && deletePost} />
                 })}
             </div>
         </div>

@@ -14,6 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .postTopLeft {
@@ -36,6 +37,47 @@
 
 .postTiming {
     font-size: 12px;
+}
+
+.postOptionsIcon:hover {
+    background-color: rgb(164, 164, 164);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.postOptions {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0px 0px 20px -8px rgb(0 0 0 / 82%);
+    transition: transform 0.15s ease;
+    transform: scale(0) translate(150px, -10px);
+}
+
+.postOptions.active {
+    transform: scale(1) translate(0px, 35px);
+}
+
+.postOptionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.postOptionItem {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+.postOptionItem:hover {
+    background: linear-gradient(300deg, rgb(197, 197, 197), rgb(225, 225, 225));
 }
 
 .postCenter {

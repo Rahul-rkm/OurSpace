@@ -10,7 +10,11 @@ const Share = () => {
     const desc = useRef()
     const [file, setFile] = useState(null)
     const submitHandler = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        if (!desc.current.value && !file) {
+            alert("Your post can't be empty. ❌")
+            return;
+        }
         const newPost = {
             userId: currentUser._id,
             desc: desc.current.value,
@@ -39,10 +43,10 @@ const Share = () => {
     }
     return (
         <div className="share">
-            <div className="shareWrapper">
+            <form className="shareWrapper" onSubmit={submitHandler}>
                 <div className="shareTop">
                     <img className="shareProfilePicture" src={currentUser.profilePicture ? PF + currentUser.profilePicture : PF + `person/noAvatar.jpg`} alt="profile pic" />
-                    <textarea placeholder={`What's in your mind ${currentUser.username}? `} ref={desc} className="shareInput" />
+                    <textarea required placeholder={`What's in your mind ${currentUser.username}? `} ref={desc} className="shareInput" />
                 </div>
                 <hr className="shareHr" />
                 {file && (
@@ -51,7 +55,7 @@ const Share = () => {
                         <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
                     </div>
                 )}
-                <form className="shareBottom" onSubmit={submitHandler}>
+                <div className="shareBottom">
                     <div className="shareOptions">
                         <label htmlFor="file" className="shareOption">
                             <PermMedia htmlColor="tomato" className="shareIcon" />
@@ -72,8 +76,8 @@ const Share = () => {
                         </div>
                     </div>
                     <button className="shareButton" type="submit">Share</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     )
 }
