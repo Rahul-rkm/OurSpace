@@ -11,7 +11,6 @@ const Post = ({ post, myProfile, postDelete }) => {
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({})
-
     const [optionsActive, setOptionsActive] = useState(false);
 
     const deletePost = (e) => {
@@ -52,6 +51,7 @@ const Post = ({ post, myProfile, postDelete }) => {
     const toggleOptions = () => {
         setOptionsActive(!optionsActive);
     }
+
     return (
         <div className="post">
             <div className="postWrapper">
@@ -86,7 +86,7 @@ const Post = ({ post, myProfile, postDelete }) => {
                     <div className="postBottomLeft">
                         <img onClick={likeHandler} className="likeIcon" src="/assets/like.png" alt="Like" />
                         <img onClick={likeHandler} className="likeIcon" src="/assets/heart.png" alt="Love" />
-                        <div className="postLikeCounter">{likes} people like this</div>
+                        <div className="postLikeCounter">{likes} likes</div>
                     </div>
                     <div className="postBottomRight">
                         <span className="postCommentCounter">{post?.comment} comments</span>

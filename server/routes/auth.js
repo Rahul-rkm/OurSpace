@@ -31,7 +31,8 @@ router.post("/login", async (req, res) => {
         !user && res.status(404).json({ "type": "LOGIN_ERR_NOUSER", "message": "User not found" });
         if (user) {
             const validPassword = await bcrypt.compare(req.body.password, user.password);
-            const { password, ...userData } = user._doc;
+            // const { password, ...userData } = user._doc;
+            const { ...userData } = user._doc;
             validPassword && res.status(200).json(userData);
             !validPassword && res.status(400).json({ "type": "LOGIN_ERR_WPASS", "message": "Wrong password" });
         }

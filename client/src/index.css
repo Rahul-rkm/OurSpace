@@ -7,3 +7,145 @@ html,
 body {
   margin: 0;
 }
+
+
+@media screen and (max-width: 1150px) {
+  .sidebar {
+    flex: none;
+    width: 60px;
+  }
+
+  .sidebarWrapper {
+    padding: 5px;
+
+  }
+
+  .sidebarList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebarFriendsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebarListItemText {
+    display: none;
+  }
+
+  .sidebarFriendName {
+    display: none;
+  }
+
+
+  .topbarLink {
+    display: none;
+  }
+
+  .topbarLeft {
+    flex: none;
+    margin-right: 25px;
+  }
+
+  .topbarCenter {
+    flex: none;
+  }
+
+  .topbarRight {
+    /* flex: 1; */
+    margin-right: 10px;
+    justify-content: flex-end;
+  }
+
+  .rightbar {
+    flex: 2.5;
+  }
+
+  .sidebarButton {
+    font-size: x-small;
+  }
+
+}
+
+@media screen and (max-width: 888px) {
+  .rightbar {
+    display: none;
+  }
+
+  .homeMainContainer {
+    justify-content: flex-start;
+  }
+
+
+}
+
+@media screen and (max-width: 645px) {
+  .shareOptionText {
+    font-size: smaller;
+  }
+
+}
+
+@media screen and (max-width: 580px) {
+  .shareOptionText {
+    display: none;
+  }
+
+  .searchbar {
+    border-radius: 20px;
+  }
+
+  .searchInput {
+    width: 0px;
+  }
+
+  .postLikeCounter {
+    font-size: smaller;
+  }
+
+  .postCommentCounter {
+    font-size: smaller;
+  }
+
+  .likeIcon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 382px) {
+  .topbarIcons {
+    display: none;
+  }
+
+  .shareOption .shareOptionText {
+    display: inline;
+  }
+
+  .secondaryShareOption {
+    display: none;
+  }
+
+  .sidebar svg {
+    width: 18px;
+  }
+
+  .sidebar {
+    width: 48px;
+  }
+
+  .sidebarButton {
+    padding: 5px 2px;
+  }
+
+  .postUsername {
+    font-size: 14px;
+  }
+
+  .postTiming {
+    font-size: 8px;
+  }
+}

@@ -4,6 +4,7 @@
     overflow-y: scroll;
     position: sticky;
     top: 50px;
+    max-width: 280px;
 }
 
 ::-webkit-scrollbar {
@@ -47,7 +48,8 @@
     padding: 10px;
     font-weight: 500;
     border-radius: 5px;
-    width: 120px;
+    width: 90%;
+    min-width: fit-content;
     cursor: pointer;
 }
 

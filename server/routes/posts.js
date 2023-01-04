@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const Post = require("../models/post")
 const User = require("../models/user")
+const fs = require('fs')
 
 
 
@@ -36,6 +37,15 @@ router.delete("/:id", async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
         if (post.userId === req.body.userId) {
+            if (post?.img) {
+                try {
+                    fs.unlinkSync(`public/images/${post?.img}`, () => { console.log('\x1b[36m%s\x1b[0m', 'Image File deleted. ') })
+                }
+                catch (err) {
+                    console.log('\x1b[36m%s\x1b[0m', 'ERR:')
+                    console.log(err)
+                }
+            }
             await post.deleteOne()
             res.status(201).json("Post deleted successfully")
         }

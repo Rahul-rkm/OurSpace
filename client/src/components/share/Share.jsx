@@ -62,15 +62,15 @@ const Share = () => {
                             <span className="shareOptionText">Photo or Video</span>
                             <input style={{ display: "none" }} type="file" id="file" accept=".png,.jpeg,.jpg" onChange={(e) => setFile(e.target.files[0])} />
                         </label>
-                        <div className="shareOption">
+                        <div className="shareOption secondaryShareOption">
                             <Label htmlColor="blue" className="shareIcon" />
                             <span className="shareOptionText">Tag</span>
                         </div>
-                        <div className="shareOption">
+                        <div className="shareOption secondaryShareOption">
                             <Room htmlColor="green" className="shareIcon" />
                             <span className="shareOptionText">Location</span>
                         </div>
-                        <div className="shareOption">
+                        <div className="shareOption secondaryShareOption">
                             <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
                             <span className="shareOptionText">Mood</span>
                         </div>

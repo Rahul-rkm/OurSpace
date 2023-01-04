@@ -9,7 +9,7 @@ const Sidebar = () => {
                 <ul className="sidebarList">
                     <li className="sidebarListItem">
                         <Feed className="sidebarIcon" />
-                        <span className="sidebarListItemText">Feed</span>
+                        <div className="sidebarListItemText">Feed</div>
                     </li>
                     <li className="sidebarListItem">
                         <OndemandVideo className="sidebarIcon" />
@@ -36,7 +36,7 @@ const Sidebar = () => {
                         <span className="sidebarListItemText">Ask for help</span>
                     </li>
                 </ul>
-                <button className="sidebarButton">Show More</button>
+                <button className="sidebarButton">More</button>
                 <hr className="sidebarHr" />
                 <ul className="sidebarFriendsList">
                     {Users.map(user => {
