@@ -36,7 +36,14 @@
 .sidebarListItem {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    padding: 6px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebarListItem:hover {
+    background-color: var(--gray3);
 }
 
 .sidebarIcon {
@@ -66,7 +73,14 @@
 .sidebarFriend {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    padding: 5px 3px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.sidebarFriend:hover {
+    background-color: var(--gray3);
 }
 
 .sidebarFriendImg {

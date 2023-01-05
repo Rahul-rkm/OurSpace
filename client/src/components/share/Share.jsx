@@ -46,7 +46,7 @@ const Share = () => {
             <form className="shareWrapper" onSubmit={submitHandler}>
                 <div className="shareTop">
                     <img className="shareProfilePicture" src={currentUser.profilePicture ? PF + currentUser.profilePicture : PF + `person/noAvatar.jpg`} alt="profile pic" />
-                    <textarea required placeholder={`What's in your mind ${currentUser.username}? `} ref={desc} className="shareInput" />
+                    <textarea required placeholder={`What's in your mind ${currentUser.username}? `} ref={desc} className="shareInput textInputField" />
                 </div>
                 <hr className="shareHr" />
                 {file && (
@@ -59,7 +59,7 @@ const Share = () => {
                     <div className="shareOptions">
                         <label htmlFor="file" className="shareOption">
                             <PermMedia htmlColor="tomato" className="shareIcon" />
-                            <span className="shareOptionText">Photo or Video</span>
+                            <span className="shareOptionText">Photo/Video</span>
                             <input style={{ display: "none" }} type="file" id="file" accept=".png,.jpeg,.jpg" onChange={(e) => setFile(e.target.files[0])} />
                         </label>
                         <div className="shareOption secondaryShareOption">
