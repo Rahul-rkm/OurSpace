@@ -14,13 +14,10 @@ body {
   --gray2: #b2becd;
   --gray3: #bdbdbd8a;
   --gray4: #454e56;
-  --gray5: #2a2e35;
+  --gray5: #535353;
   --gray6: #242526;
   --gray7: #18191a;
   --gray8: #12181b;
-  --blue: #0084a5;
-  --purple: #a82dd1;
-  --yellow: #fff565;
   /* Default theme */
   --bg1: white;
   --bg2: white;
@@ -31,8 +28,8 @@ body {
 .darkTheme {
   background-color: var(--gray7);
   color: var(--gray0);
-  --bg1: var(--gray6);
-  --bg2: var(--gray7);
+  --bg1: var(--gray5);
+  --bg2: var(--gray6);
   --fg1: white;
   --fg2: var(--gray0);
   --fg3: var(--gray1);

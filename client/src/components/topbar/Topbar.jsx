@@ -3,10 +3,32 @@ import { Search, Person, Chat, Notifications } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import Dropdown from '../dropdown/Dropdown'
 const Topbar = () => {
     const { user } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
 
+    const dropdown = {
+        mainList: [
+            { leftIcon: '😎', text: 'Profile', rightIcon: '' },
+            { leftIcon: '🔨', text: 'Settings', rightIcon: '👉' },
+            { leftIcon: '❓', text: 'Settings', rightIcon: '👉' },
+        ],
+        rightLists: [
+            [
+                { leftIcon: '👈', text: 'Go Back', rightIcon: '' },
+                { leftIcon: '🔨', text: 'General Settings', rightIcon: '' },
+                { leftIcon: '🔏', text: 'Privacy Settings', rightIcon: '' },
+                { leftIcon: '📜', text: 'Privacy Log', rightIcon: '' },
+            ],
+            [
+                { leftIcon: '👈', text: 'Go Back', rightIcon: '' },
+                { leftIcon: '❔', text: 'Help center', rightIcon: '' },
+                { leftIcon: '📩', text: 'Support Box', rightIcon: '' },
+                { leftIcon: '📝', text: 'Report Problem', rightIcon: '' },
+            ],
+        ]
+    }
     return (
         <div className='topbarContainer'>
             <div className="topbarLeft">
@@ -39,9 +61,10 @@ const Topbar = () => {
                         <span className="topbarIconBadge">8</span>
                     </div>
                 </div>
-                <Link to={`/profile/${user.username}`}>
-                    <img src={(user?.profilePicture) ? PF + user?.profilePicture : PF + `person/noAvatar.jpg`} alt="profilePic" className="profilePicture" />
-                </Link>
+                <img src={(user?.profilePicture) ? PF + user?.profilePicture : PF + `person/noAvatar.jpg`} alt="profilePic" className="profilePicture" />
+                <Dropdown dropList={dropdown} />
+                {/* <Link to={`/profile/${user.username}`}>
+                </Link> */}
             </div>
         </div>
     )
