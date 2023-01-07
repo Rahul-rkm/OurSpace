@@ -21,3 +21,11 @@ export const Unfollow = (userId) => ({
     type: "UNFOLLOW",
     payload: userId
 })
+
+export const SwitchTheme = () => ({
+    type: "THEME_SWITCH"
+})
+
+export const Logout = () => ({
+    type: "LOGOUT"
+})

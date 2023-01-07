@@ -36,6 +36,16 @@ const AuthReducer = (state, action) => {
                     ),
                 },
             };
+        case "THEME_SWITCH":
+            return {
+                ...state,
+                darkTheme: !state.darkTheme
+            };
+        case "LOGOUT":
+            return {
+                ...state,
+                user: null
+            }
         default:
             return state;
     }

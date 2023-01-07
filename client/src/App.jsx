@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
 function App() {
-  const { user } = useContext(AuthContext)
+  const { user, darkTheme } = useContext(AuthContext)
 
   return (
-    <div className="App">
+    <div className={`App ${darkTheme && `darkTheme`}`}>
       <Router>
         <Routes>
           <Route path='/' element={<Home user={user} />} />

@@ -9,12 +9,13 @@
     box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.75);
+    transition: height 0.25s ease;
+    border-radius: 7px 7px 10px 10px;
 }
 
 .dropdownWrapper {
     display: flex;
-    transition: transform 0.25s ease;
-    transition: height 0.25s ease;
+    transition: translate 0.25s ease;
 }
 
 .dropdownList {
@@ -32,17 +33,33 @@
     cursor: pointer;
     border-radius: 5px;
     display: flex;
+    align-items: center;
+    color: var(--fg1);
 }
 
 .dropdownItem:hover {
     background-color: var(--gray3);
 }
 
+.dropItemLeftIcon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
 .dropItemRightIcon {
     /* flex: 1; */
     margin-left: auto;
+    height: 32px;
 }
 
 .rightList {
     display: none;
+}
+
+.rightList.show {
+    display: flex;
 }

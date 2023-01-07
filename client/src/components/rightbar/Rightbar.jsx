@@ -1,10 +1,9 @@
 import "./rightbar.css"
 import OnlineFriend from "../onlineFriend/OnlineFriend"
 import { Users } from "../../dummyData"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from '@mui/icons-material'
 

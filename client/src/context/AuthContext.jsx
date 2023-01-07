@@ -11,7 +11,8 @@ if (sessionStorage.getItem('currentUser')) {
 const INITIAL_STATE = {
     user: currUser,
     isFetching: false,
-    error: false
+    error: false,
+    darkTheme: false
 }
 
 export const AuthContext = createContext(INITIAL_STATE)
@@ -20,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE)
 
     return (
-        <AuthContext.Provider value={{ user: state.user, isFetching: state.isFetching, error: state.error, dispatch }}>
+        <AuthContext.Provider value={{ user: state.user, isFetching: state.isFetching, error: state.error, darkTheme: state.darkTheme, dispatch }}>
             {children}
         </AuthContext.Provider>
     )
