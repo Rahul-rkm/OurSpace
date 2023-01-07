@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './dropdown.css'
 
 const Dropdown = ({ dropList }) => {
+    const navigate = useNavigate()
     const { user, darkTheme, dispatch } = useContext(AuthContext)
     const dropdown = useRef()
     const dropdownWrapper = useRef()
@@ -39,10 +40,15 @@ const Dropdown = ({ dropList }) => {
     }
     const darkSwitcher = () => {
         dispatch({ type: "THEME_SWITCH" })
+        console.log(location.hostname)
     }
 
     const logoutHandler = () => {
         dispatch({ type: "LOGOUT" })
+        sessionStorage.setItem('currentUser', null)
+        navigate("/")
+        // sessionStorage.setItem('currentUser', user)
+        // window.location.reload()
     }
 
     return (
@@ -65,8 +71,8 @@ const Dropdown = ({ dropList }) => {
                                     }}
                                 ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                                 :
-                                <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none' }} >
-                                    <li key={`mainList${index}`} className='dropdownItem'
+                                <Link key={`mainList${index}`} to={`/profile/${user.username}`} style={{ textDecoration: 'none' }} >
+                                    <li className='dropdownItem'
                                     ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                                 </Link>
                         )

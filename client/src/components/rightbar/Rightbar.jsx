@@ -96,9 +96,9 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
                 <div className="rightbarFollowings">
                     {
                         // console.log(Users);
-                        friends.map(friend => {
+                        friends.map((friend, index) => {
                             return (
-                                <Link className="friendLink" to={`/profile/${friend.username}`} >
+                                <Link key={`friend${index}`} className="friendLink" to={`/profile/${friend.username}`} >
                                     <div className="rightbarFollowing">
                                         <img src={PF + friend?.profilePicture} alt="userImg" className="rightbarFollowingImg" />
                                         <span className="rightbarFollowingName">{friend?.username.split(' ')[0]}</span>

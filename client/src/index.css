@@ -26,18 +26,18 @@ body {
 }
 
 .darkTheme {
-  background-color: var(--gray7);
   color: var(--gray0);
-  --bg1: var(--gray5);
-  --bg2: var(--gray6);
+  --bg1: var(--gray6);
+  --bg2: var(--gray7);
   --fg1: white;
   --fg2: var(--gray0);
   --fg3: var(--gray1);
+  background-color: var(--bg2);
 }
 
 .darkTheme .post,
 .darkTheme .share {
-  background-color: #242526;
+  background-color: var(--bg1);
 }
 
 .darkTheme .textInputField {
