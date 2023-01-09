@@ -1,14 +1,15 @@
 import './topbar.css'
 import { Search, Person, Chat, Notifications } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext, useState, useRef } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import Dropdown from '../dropdown/Dropdown'
+import axios from 'axios'
 const Topbar = () => {
     const { user } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     const [showDropdown, setShowDropdown] = useState(false);
-
+    const [searchRes, setSearchRes] = useState(null)
     const dropdown = {
         mainList: [
             { leftIcon: '😎', text: 'Profile', rightIcon: '' },
@@ -34,6 +35,17 @@ const Topbar = () => {
             ],
         ]
     }
+
+    const searchTerm = useRef()
+    const searchHandler = async (e) => {
+        e.preventDefault()
+        console.log("👉")
+        const userId = searchTerm.current.value;
+        const res = await axios.get(`/api/users/search/${userId}`)
+        if (res.data.type === "SUCCESS") {
+            setSearchRes(res.data.user)
+        }
+    }
     return (
         <div className='topbarContainer'>
             <div className="topbarLeft">
@@ -42,9 +54,15 @@ const Topbar = () => {
                 </Link>
             </div>
             <div className="topbarCenter">
-                <div className="searchbar">
+                <form onSubmit={searchHandler} className="searchbar">
                     <Search className='searchIcon' />
-                    <input placeholder='Search for people, posts, trends ...' className='searchInput' />
+                    <input ref={searchTerm} placeholder='Search for people, posts, trends ...' className='searchInput' />
+                </form>
+                <div className='searchList' style={searchRes ? { display: 'block' } : { display: 'none' }}>
+                    <div className="searchResItem">
+                        <img className='searchResItemImg' src={PF + searchRes?.profilePicture} alt="profileImg" />
+                        <div className='searchResItemUsername'>{searchRes?.username}</div>
+                    </div>
                 </div>
             </div>
             <div className="topbarRight">

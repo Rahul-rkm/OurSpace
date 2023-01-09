@@ -23,6 +23,7 @@
 
 .topbarCenter {
     flex: 5;
+    position: relative;
 }
 
 .searchbar {
@@ -93,4 +94,25 @@
     border-radius: 50%;
     /* border: 2px solid rgb(141, 71, 255); */
     cursor: pointer;
+}
+
+
+.searchList {
+    position: absolute;
+    top: 30px;
+}
+
+.searchResItem {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg1);
+    padding: 5px 10px;
+
+}
+
+.searchResItemImg {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 5px;
 }
