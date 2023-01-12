@@ -37,7 +37,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         // const fileName = Date.now() + file.name;
-        console.log(req.body)
+        // console.log(req.body)
         // console.log(req.body?.img)
         // console.log(file)
         try {

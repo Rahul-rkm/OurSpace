@@ -56,6 +56,25 @@ router.get("/", async (req, res) => {
     }
 })
 
+// search a user 
+router.get("/search/:username", async (req, res) => {
+    const username = req.params.username;
+    try {
+        const user = await User.findOne({ username: username })
+        if (!user) {
+            res.status(400).json({ "type": "ERR_UNF", "message": "User with given username not found" })
+        }
+        else {
+            const { password, ...others } = user._doc;
+            res.status(200).json({ "type": "SUCCESS", "user": others })
+        }
+
+    }
+    catch (err) {
+        console.log(err);
+    }
+})
+
 // GET FRIENDS 
 router.get("/friends/:userId", async (req, res) => {
     try {
