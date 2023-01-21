@@ -59,10 +59,12 @@ const Topbar = () => {
                     <input ref={searchTerm} placeholder='Search for people, posts, trends ...' className='searchInput' />
                 </form>
                 <div className='searchList' style={searchRes ? { display: 'block' } : { display: 'none' }}>
-                    <div className="searchResItem">
-                        <img className='searchResItemImg' src={PF + searchRes?.profilePicture} alt="profileImg" />
-                        <div className='searchResItemUsername'>{searchRes?.username}</div>
-                    </div>
+                    <Link to={`/profile/${searchRes?.username}`} >
+                        <div className="searchResItem">
+                            <img className='searchResItemImg' src={PF + searchRes?.profilePicture} alt="profileImg" />
+                            <div className='searchResItemUsername'>{searchRes?.username}</div>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <div className="topbarRight">

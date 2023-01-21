@@ -8,6 +8,28 @@ body {
   margin: 0;
 }
 
+a {
+  color: var(--fg1);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  /* display: none; */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(180, 180, 180, 1);
+  border-radius: 10px;
+}
+
+
+
 :root {
   --gray0: #f8f8f8;
   --gray1: #dbe1e8;
@@ -87,16 +109,16 @@ body {
 
   .topbarLeft {
     flex: none;
-    margin-right: 25px;
+    margin-right: 10px;
   }
 
-  .topbarCenter {
-    flex: none;
+  .logo {
+    margin-left: 10px;
   }
 
   .topbarRight {
     /* flex: 1; */
-    margin-right: 10px;
+    margin: 0 10px;
     justify-content: flex-end;
   }
 
@@ -130,6 +152,18 @@ body {
 }
 
 @media screen and (max-width: 580px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .topbarRight {
+    flex: 1;
+  }
+
+  .topbarIconItem {
+    margin-right: 12px;
+  }
+
   .shareOptionText {
     display: none;
   }
@@ -139,7 +173,9 @@ body {
   }
 
   .searchInput {
+    font-size: 11px;
     width: 0px;
+    padding: 0 10px 0 0;
   }
 
   .postLikeCounter {
