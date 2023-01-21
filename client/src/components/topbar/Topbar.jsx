@@ -12,7 +12,13 @@ const Topbar = () => {
     const [searchRes, setSearchRes] = useState(null)
     const dropdown = {
         mainList: [
-            { leftIcon: '😎', text: 'Profile', rightIcon: '' },
+            {
+                leftIcon: <img src={(user?.profilePicture) ?
+                    PF + user?.profilePicture :
+                    PF + `person/noAvatar.jpg`} alt="profilePic"
+                    onClick={() => { setShowDropdown(prev => !prev) }}
+                    className="profilePicture" />, text: 'Profile', rightIcon: ''
+            },
             { leftIcon: '🔨', text: 'Settings', rightIcon: '👉', rightList: 0 },
             { leftIcon: '❓', text: 'Help', rightIcon: '👉', rightList: 1 },
             { leftIcon: '🌙', text: 'DarkMode', rightIcon: '' },
@@ -94,8 +100,6 @@ const Topbar = () => {
                 {
                     showDropdown &&
                     <Dropdown dropList={dropdown} />}
-                {/* <Link to={`/profile/${user.username}`}>
-                </Link> */}
             </div>
         </div>
     )
