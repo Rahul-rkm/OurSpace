@@ -4,7 +4,7 @@
     height: calc(100vh - 2rem);
     padding: 2rem 2rem;
     min-height: 450px;
-    background-color: #f0f2f5;
+    background-color: #d2d2d2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,7 @@
 
 .loginDesc {
     font-size: 24px;
+    color: black;
 }
 
 .loginBox {
@@ -42,6 +43,7 @@
     background-color: white;
     border-radius: 10px;
     display: flex;
+    gap: 10px;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -56,7 +58,7 @@
 }
 
 .loginInput:focus {
-    border: 2px solid gray;
+    border: 2px solid #1774eeb8;
 }
 
 .loginErrMsg {
