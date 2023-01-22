@@ -1,10 +1,12 @@
 import './topbar.css'
-import { Search, Person, Chat, Notifications } from '@mui/icons-material'
+import axios from 'axios'
+import { Search, Person, Chat, Notifications, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, AppSettingsAlt, Security } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { useContext, useState, useRef } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import Dropdown from '../dropdown/Dropdown'
-import axios from 'axios'
+
+
 const Topbar = () => {
     const { user } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
@@ -19,20 +21,20 @@ const Topbar = () => {
                     onClick={() => { setShowDropdown(prev => !prev) }}
                     className="profilePicture" />, text: 'Profile', rightIcon: ''
             },
-            { leftIcon: '🔨', text: 'Settings', rightIcon: '👉', rightList: 0 },
-            { leftIcon: '❓', text: 'Help', rightIcon: '👉', rightList: 1 },
-            { leftIcon: '🌙', text: 'DarkMode', rightIcon: '' },
-            { leftIcon: '📤', text: 'Logout', rightIcon: '' },
+            { leftIcon: <Settings />, text: 'Settings', rightIcon: <ChevronRight />, rightList: 0 },
+            { leftIcon: <Help />, text: 'Help', rightIcon: <ChevronRight />, rightList: 1 },
+            { leftIcon: <DarkMode />, text: 'DarkMode', rightIcon: '' },
+            { leftIcon: <Logout />, text: 'Logout', rightIcon: '' },
         ],
         rightLists: [
             [
-                { leftIcon: '👈', text: 'Go Back', rightIcon: '', backBtn: true },
-                { leftIcon: '🔨', text: 'General Settings', rightIcon: '' },
-                { leftIcon: '🔏', text: 'Privacy Settings', rightIcon: '' },
+                { leftIcon: <ChevronLeft />, text: 'Go Back', rightIcon: '', backBtn: true },
+                { leftIcon: <AppSettingsAlt />, text: 'General Settings', rightIcon: '' },
+                { leftIcon: <Security />, text: 'Privacy Settings', rightIcon: '' },
                 { leftIcon: '📜', text: 'Privacy Log', rightIcon: '' },
             ],
             [
-                { leftIcon: '👈', text: 'Go Back', rightIcon: '', backBtn: true },
+                { leftIcon: <ChevronLeft />, text: 'Go Back', rightIcon: '', backBtn: true },
                 { leftIcon: '❔', text: 'Help center', rightIcon: '' },
                 { leftIcon: '📩', text: 'Support Box', rightIcon: '' },
                 { leftIcon: '📝', text: 'Report Problem', rightIcon: '' },
