@@ -7,7 +7,7 @@ import { format } from 'timeago.js'
 import { AuthContext } from "../../context/AuthContext"
 const Post = ({ post, myProfile, postDelete }) => {
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
-    const { user: currentUser } = useContext(AuthContext)
+    const { user: currentUser, overlay, dispatch } = useContext(AuthContext)
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({})
@@ -35,7 +35,10 @@ const Post = ({ post, myProfile, postDelete }) => {
     useEffect(() => {
         setIsLiked(post.likes.includes(currentUser._id))
     }, [currentUser._id, post.likes])
-
+    useEffect(() => {
+        if (!overlay)
+            setOptionsActive(false);
+    }, [overlay])
     const likeHandler = async (e) => {
         try {
             const res = await axios.put("/api/posts/" + post._id + "/like", { userId: currentUser._id })
@@ -50,6 +53,7 @@ const Post = ({ post, myProfile, postDelete }) => {
 
     const toggleOptions = () => {
         setOptionsActive(!optionsActive);
+        overlay ? dispatch({ type: "OVERLAY_OFF" }) : dispatch({ type: "OVERLAY_ON" });
     }
 
     return (

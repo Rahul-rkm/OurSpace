@@ -61,6 +61,7 @@
 
 .postOptions.active {
     transform: scale(1) translate(0px, 35px);
+    z-index: 20;
 }
 
 .postOptionsList {

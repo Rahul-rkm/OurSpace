@@ -45,7 +45,17 @@ const AuthReducer = (state, action) => {
             return {
                 ...state,
                 user: null
-            }
+            };
+        case "OVERLAY_ON":
+            return {
+                ...state,
+                overlay: true
+            };
+        case "OVERLAY_OFF":
+            return {
+                ...state,
+                overlay: false
+            };
         default:
             return state;
     }

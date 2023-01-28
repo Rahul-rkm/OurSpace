@@ -2,13 +2,13 @@ import './topbar.css'
 import axios from 'axios'
 import { Search, Person, Chat, Notifications, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, AppSettingsAlt, Security } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
-import { useContext, useState, useRef } from 'react'
+import { useContext, useState, useRef, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import Dropdown from '../dropdown/Dropdown'
 
 
 const Topbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, overlay, dispatch } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     const [showDropdown, setShowDropdown] = useState(false);
     const [searchRes, setSearchRes] = useState(null)
@@ -44,6 +44,13 @@ const Topbar = () => {
         ]
     }
 
+    useEffect(() => {
+        if (!overlay) {
+            setShowDropdown(false);
+            setSearchRes(null)
+        }
+    }, [overlay])
+
     const searchTerm = useRef()
     const searchHandler = async (e) => {
         e.preventDefault()
@@ -53,6 +60,8 @@ const Topbar = () => {
         if (res.data.type === "SUCCESS") {
             setSearchRes(res.data.user)
         }
+        // OVERLAY
+        dispatch({ type: "OVERLAY_ON" });
     }
     return (
         <div className='topbarContainer'>
@@ -67,7 +76,7 @@ const Topbar = () => {
                     <input ref={searchTerm} placeholder='Search for people, posts, trends ...' className='searchInput' />
                 </form>
                 <div className='searchList' style={searchRes ? { display: 'block' } : { display: 'none' }}>
-                    <Link to={`/profile/${searchRes?.username}`} >
+                    <Link to={`/profile/${searchRes?.username}`} onClick={() => { overlay ? dispatch({ type: "OVERLAY_OFF" }) : dispatch({ type: "OVERLAY_ON" }) }}>
                         <div className="searchResItem">
                             <img className='searchResItemImg' src={PF + searchRes?.profilePicture} alt="profileImg" />
                             <div className='searchResItemUsername'>{searchRes?.username}</div>
@@ -97,7 +106,7 @@ const Topbar = () => {
                 <img src={(user?.profilePicture) ?
                     PF + user?.profilePicture :
                     PF + `person/noAvatar.jpg`} alt="profilePic"
-                    onClick={() => { setShowDropdown(prev => !prev) }}
+                    onClick={() => { setShowDropdown(prev => !prev); overlay ? dispatch({ type: "OVERLAY_OFF" }) : dispatch({ type: "OVERLAY_ON" }) }}
                     className="profilePicture" />
                 {
                     showDropdown &&

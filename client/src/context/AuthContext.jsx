@@ -12,7 +12,8 @@ const INITIAL_STATE = {
     user: currUser,
     isFetching: false,
     error: false,
-    darkTheme: false
+    darkTheme: false,
+    overlay: false
 }
 
 export const AuthContext = createContext(INITIAL_STATE)
@@ -21,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE)
 
     return (
-        <AuthContext.Provider value={{ user: state.user, isFetching: state.isFetching, error: state.error, darkTheme: state.darkTheme, dispatch }}>
+        <AuthContext.Provider value={{ user: state.user, isFetching: state.isFetching, error: state.error, darkTheme: state.darkTheme, overlay: state.overlay, dispatch }}>
             {children}
         </AuthContext.Provider>
     )
