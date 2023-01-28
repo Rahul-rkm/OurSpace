@@ -1,5 +1,5 @@
 import "./post.css"
-import { MoreHoriz, Delete, Bookmark } from "@mui/icons-material"
+import { MoreHoriz, Delete, Bookmark, ThumbUpOffAlt, ThumbUpAlt } from "@mui/icons-material"
 import { useState, useEffect, useContext } from "react"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -84,8 +84,9 @@ const Post = ({ post, myProfile, postDelete }) => {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img onClick={likeHandler} className="likeIcon" src="/assets/like.png" alt="Like" />
-                        <img onClick={likeHandler} className="likeIcon" src="/assets/heart.png" alt="Love" />
+                        {/* <img onClick={likeHandler} className="likeIcon" src="/assets/like.png" alt="Like" />
+                        <img onClick={likeHandler} className="likeIcon" src="/assets/heart.png" alt="Love" /> */}
+                        {isLiked ? <ThumbUpAlt onClick={likeHandler} className='likeIcon' /> : <ThumbUpOffAlt onClick={likeHandler} className='likeIcon' />}
                         <div className="postLikeCounter">{likes} likes</div>
                     </div>
                     <div className="postBottomRight">
