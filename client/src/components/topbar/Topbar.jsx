@@ -1,6 +1,6 @@
 import './topbar.css'
 import axios from 'axios'
-import { Search, Person, Chat, Notifications, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, AppSettingsAlt, Security } from '@mui/icons-material'
+import { Search, Person, Chat, Notifications, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, LightMode, AppSettingsAlt, Security } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { useContext, useState, useRef, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
@@ -8,7 +8,7 @@ import Dropdown from '../dropdown/Dropdown'
 
 
 const Topbar = () => {
-    const { user, overlay, dispatch } = useContext(AuthContext)
+    const { user, overlay, darkTheme, dispatch } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     const [showDropdown, setShowDropdown] = useState(false);
     const [searchRes, setSearchRes] = useState(null)
@@ -23,7 +23,7 @@ const Topbar = () => {
             },
             { leftIcon: <Settings />, text: 'Settings', rightIcon: <ChevronRight />, rightList: 0 },
             { leftIcon: <Help />, text: 'Help', rightIcon: <ChevronRight />, rightList: 1 },
-            { leftIcon: <DarkMode />, text: 'DarkMode', rightIcon: '' },
+            { leftIcon: darkTheme ? <LightMode /> : <DarkMode />, text: 'Switch Theme', rightIcon: '' },
             { leftIcon: <Logout />, text: 'Logout', rightIcon: '' },
         ],
         rightLists: [

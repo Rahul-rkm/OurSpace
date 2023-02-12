@@ -44,11 +44,13 @@ const Dropdown = ({ dropList }) => {
     }
 
     const logoutHandler = () => {
-        dispatch({ type: "LOGOUT" })
-        sessionStorage.setItem('currentUser', null)
-        navigate("/")
-        // sessionStorage.setItem('currentUser', user)
-        // window.location.reload()
+        if (window.confirm('Are you sure you want to log out?')) {
+            dispatch({ type: "LOGOUT" })
+            sessionStorage.setItem('currentUser', null)
+            navigate("/")
+            // sessionStorage.setItem('currentUser', user)
+            // window.location.reload()
+        }
     }
 
     return (
@@ -64,7 +66,7 @@ const Dropdown = ({ dropList }) => {
                                             settingsClickHandler();
                                         else if (item?.text === 'Help')
                                             helpClickHandler()
-                                        else if (item?.text === 'DarkMode')
+                                        else if (item?.text === 'Switch Theme')
                                             darkSwitcher()
                                         else if (item?.text === 'Logout')
                                             logoutHandler()
