@@ -19,27 +19,27 @@ const Topbar = () => {
                     PF + user?.profilePicture :
                     PF + `person/noAvatar.jpg`} alt="profilePic"
                     onClick={() => { setShowDropdown(prev => !prev) }}
-                    className="profilePicture" />, text: 'Profile', rightIcon: ''
+                    className="profilePicture" />, text: 'Profile', rightIcon: '', value: 'Profile'
             },
-            { leftIcon: <Settings />, text: 'Settings', rightIcon: <ChevronRight />, rightList: 0 },
-            { leftIcon: <Help />, text: 'Help', rightIcon: <ChevronRight />, rightList: 1 },
-            { leftIcon: darkTheme ? <LightMode /> : <DarkMode />, text: 'Switch Theme', rightIcon: '' },
-            { leftIcon: <Logout />, text: 'Logout', rightIcon: '' },
+            { leftIcon: <Settings />, text: 'Settings', rightIcon: <ChevronRight />, rightList: 0, value: 'Settings' },
+            { leftIcon: <Help />, text: 'Help', rightIcon: <ChevronRight />, rightList: 1, value: 'Help' },
+            { leftIcon: darkTheme ? <LightMode /> : <DarkMode />, text: 'Switch Theme', rightIcon: '', value: 'Switch Theme' },
+            { leftIcon: <Logout />, text: 'Logout', rightIcon: '', value: 'Logout' },
         ],
         rightLists: [
             [
-                { leftIcon: <ChevronLeft />, text: 'Go Back', rightIcon: '', backBtn: true },
-                { leftIcon: <AppSettingsAlt />, text: 'General Settings', rightIcon: '' },
-                { leftIcon: <Security />, text: 'Privacy Settings', rightIcon: '' },
-                { leftIcon: '📜', text: 'Privacy Log', rightIcon: '' },
+                { leftIcon: <ChevronLeft />, text: 'Settings', rightIcon: '', value: 'Go Back' },
+                { leftIcon: <AppSettingsAlt />, text: 'General Settings', rightIcon: '', value: 'General Settings' },
+                { leftIcon: <Security />, text: 'Privacy Settings', rightIcon: '', value: 'Privacy Settings' },
+                { leftIcon: '📜', text: 'Privacy Log', rightIcon: '', value: 'Privacy Log' },
             ],
             [
-                { leftIcon: <ChevronLeft />, text: 'Go Back', rightIcon: '', backBtn: true },
-                { leftIcon: '❔', text: 'Help center', rightIcon: '' },
-                { leftIcon: '📩', text: 'Support Box', rightIcon: '' },
-                { leftIcon: '📝', text: 'Report Problem', rightIcon: '' },
-                { leftIcon: '📩', text: 'Support Box', rightIcon: '' },
-                { leftIcon: '📝', text: 'Report Problem', rightIcon: '' },
+                { leftIcon: <ChevronLeft />, text: 'Help', rightIcon: '', value: 'Go Back' },
+                { leftIcon: '❔', text: 'Help center', rightIcon: '', value: 'Help center' },
+                { leftIcon: '📩', text: 'Support Box', rightIcon: '', value: 'Support Box' },
+                { leftIcon: '📝', text: 'Report Problem', rightIcon: '', value: 'Report Problem' },
+                { leftIcon: '📩', text: 'Support Box', rightIcon: '', value: 'Support Box' },
+                { leftIcon: '📝', text: 'Report Problem', rightIcon: '', value: 'Report Problem' }
             ],
         ]
     }

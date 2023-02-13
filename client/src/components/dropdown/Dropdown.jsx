@@ -59,16 +59,16 @@ const Dropdown = ({ dropList }) => {
                 <ul ref={mainDroplist} className="dropdownList mainList">
                     {dropList?.mainList.map((item, index) => {
                         return (
-                            item?.text !== "Profile" ?
+                            item?.value !== "Profile" ?
                                 <li key={`mainList${index}`} className='dropdownItem'
                                     onClick={() => {
-                                        if (item?.text === 'Settings')
+                                        if (item?.value === 'Settings')
                                             settingsClickHandler();
-                                        else if (item?.text === 'Help')
+                                        else if (item?.value === 'Help')
                                             helpClickHandler()
-                                        else if (item?.text === 'Switch Theme')
+                                        else if (item?.value === 'Switch Theme')
                                             darkSwitcher()
-                                        else if (item?.text === 'Logout')
+                                        else if (item?.value === 'Logout')
                                             logoutHandler()
                                     }}
                                 ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
@@ -86,7 +86,7 @@ const Dropdown = ({ dropList }) => {
                         dropList?.rightLists[0].map((item, index) => {
                             return (
                                 <li key={`rightList${index}`} className='dropdownItem' onClick={() => {
-                                    if (item?.text === 'Go Back')
+                                    if (item?.value === 'Go Back')
                                         backClickHandler()
                                 }} ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                             )
@@ -98,7 +98,7 @@ const Dropdown = ({ dropList }) => {
                         dropList?.rightLists[1].map((item, index) => {
                             return (
                                 <li key={`rightList${index}`} className='dropdownItem' onClick={() => {
-                                    if (item?.text === 'Go Back')
+                                    if (item?.value === 'Go Back')
                                         backClickHandler()
                                 }} ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                             )
