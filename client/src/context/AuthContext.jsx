@@ -3,9 +3,12 @@ import AuthReducer from "./AuthReducer"
 
 let currUser = null;
 if (sessionStorage.getItem('currentUser')) {
-    currUser = await JSON.parse(sessionStorage.getItem('currentUser'))
-    console.log('FETCHED FROM THE SESSION STORAGE , user: ')
-    console.log(currUser)
+    const getUser = async () => {
+        currUser = await JSON.parse(sessionStorage.getItem('currentUser'))
+        console.log('FETCHED FROM THE SESSION STORAGE , user: ')
+        console.log(currUser)
+    }
+    getUser()
 }
 
 const INITIAL_STATE = {
