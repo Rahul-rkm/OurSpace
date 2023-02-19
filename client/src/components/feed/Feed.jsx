@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Feed = ({ username }) => {
     // const proxy = import.meta.env.VITE_APP_PROXY;
+    const [reloads, setReloads] = useState(0)
     const [posts, setPosts] = useState([])
     const { user } = useContext(AuthContext);
     useEffect(() => {
@@ -18,7 +19,11 @@ const Feed = ({ username }) => {
             }))
         }
         fetchPosts()
-    }, [username, user._id])
+    }, [username, user._id, reloads])
+
+    const updateReload = () => {
+        setReloads(prev => prev + 1)
+    }
 
     const deletePost = async (postItem) => {
         console.log(posts)
@@ -31,7 +36,8 @@ const Feed = ({ username }) => {
                 url: deleteUrl,
                 data: { userId: user._id, desc: 'Deleting the post' }
             });
-            window.location.reload()
+            // window.location.reload()
+            updateReload()
         }
         catch (err) {
             alert(err);
@@ -41,7 +47,7 @@ const Feed = ({ username }) => {
     return (
         <div className="feed">
             <div className="feedWrapper">
-                {(!username || username === user.username) && <Share />}
+                {(!username || username === user.username) && <Share reloadFunc={updateReload} />}
                 {posts.map((p) => {
                     return <Post key={p._id} id={p._id} post={p}
                         myProfile={username === user.username && true}

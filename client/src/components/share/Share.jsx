@@ -4,11 +4,16 @@ import { useContext, useRef, useState } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import axios from 'axios'
 
-const Share = () => {
+const Share = ({ reloadFunc }) => {
     const { user: currentUser } = useContext(AuthContext)
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     const desc = useRef()
     const [file, setFile] = useState(null)
+    const updateReload = () => {
+        desc.current.value = ''
+        setFile(null)
+        reloadFunc()
+    }
     const submitHandler = async (e) => {
         e.preventDefault();
         if (!desc.current.value && !file) {
@@ -35,7 +40,8 @@ const Share = () => {
         }
         try {
             await axios.post("/api/posts", newPost)
-            window.location.reload()
+            // window.location.reload()
+            updateReload()
         }
         catch (err) {
             console.log('error in posting -> ', err)
