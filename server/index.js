@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const helmet = require('helmet')
@@ -30,6 +31,8 @@ app.use("/images", express.static(path.join(__dirname, "public/images")))
 // Middleware
 app.use(express.json())
 app.use(helmet())
+app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
+app.use(cors())
 app.use(morgan("common"))
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
