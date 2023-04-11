@@ -14,9 +14,11 @@ const Feed = ({ username }) => {
         const fetchPosts = async () => {
             const urlWithProxy = `/api/posts/timeline/${user._id}`
             const response = (username) ? await axios.get(`/api/posts/profile/${username}`) : await axios.get(urlWithProxy);
+            console.log(`%cResponse`,'color: green; font-size: larger')
             setPosts(response.data.sort((p1, p2) => {
                 return new Date(p2.createdAt) - new Date(p1.createdAt);
             }))
+            console.log(posts)
         }
         fetchPosts()
     }, [username, user._id, reloads])

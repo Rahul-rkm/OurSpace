@@ -1,7 +1,8 @@
 import axios from "axios";
-const loginApi = axios.create({
-    baseURL: 'https://ourspace-bsx8.onrender.com'
-})
+import {loginApi} from "./axios"
+// const loginApi = axios.create({
+//     baseURL: 'https://ourspace-bsx8.onrender.com'
+// })
 export const loginCall = async (userCredential, dispatch) => {
     dispatch({ type: "LOGIN_START" });
     let res;

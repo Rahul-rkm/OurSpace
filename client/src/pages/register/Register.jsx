@@ -54,6 +54,7 @@ const Register = ({ userAuth }) => {
                         <input type="password" className="loginInput" required minLength='6' placeholder="Password" ref={password} />
                         <input type="password" className="loginInput" required placeholder="Confirm Password" ref={passwordAgain} />
                         <button className="loginButton" onClick={submitHandler}>SignUp</button>
+                        <span className="loginForgot">Already have account?</span>
                         <button className="loginRegisterButton" onClick={clickHandler}>Goto Login Page</button>
                     </div>
                 </div>
