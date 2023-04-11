@@ -1,6 +1,6 @@
 # OurSpace - a social media platform.
 
-![Image](./about/OurSpaceHomepage.jpg)
+[![Our-Space-Homepage.jpg](https://i.postimg.cc/MHsHQkBL/Our-Space-Homepage.jpg)](https://postimg.cc/RJH4kDX1)
 
 ## Features
 
@@ -21,16 +21,16 @@
 
 ### Login
 
-![Image](./about/OurSpaceLogin.jpg)
+[![Our-Space-Login.jpg](https://i.postimg.cc/xCXn4kN6/Our-Space-Login.jpg)](https://postimg.cc/5YWhH23z)
 
 ### Homepage
 
-![Image](./about/OurSpaceHomepage.jpg)
+[![Our-Space-Homepage.jpg](https://i.postimg.cc/MHsHQkBL/Our-Space-Homepage.jpg)](https://postimg.cc/RJH4kDX1)
 
 ### Dark Mode
 
-![Image](./about/OurSpaceDarkMode.jpg)
+[![Our-Space-Dark-Mode.jpg](https://i.postimg.cc/mkQxv7Ly/Our-Space-Dark-Mode.jpg)](https://postimg.cc/Lg60fYZJ)
 
 ### Profile page
 
-![Image](./about/OurSpaceProfilePage.jpg)
+[![Our-Space-Profile-Page.jpg](https://i.postimg.cc/K8cXWKdt/Our-Space-Profile-Page.jpg)](https://postimg.cc/rKHY0pyp)
