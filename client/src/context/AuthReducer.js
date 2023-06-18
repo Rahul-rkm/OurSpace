@@ -56,6 +56,11 @@ const AuthReducer = (state, action) => {
                 ...state,
                 overlay: false
             };
+        case "SET_USER_TOKEN":
+            return {
+                ...state,
+                user: action.payload
+            }
         default:
             return state;
     }
