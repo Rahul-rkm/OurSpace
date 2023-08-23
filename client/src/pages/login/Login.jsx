@@ -22,7 +22,6 @@ const Login = ({ userAuth }) => {
         if (res?.type !== null) {
             setLoginErr(res);
         }
-
     }
 
     const clickHandler = (e) => {
