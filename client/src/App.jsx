@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     if (localStorage.getItem('OurSpaceCurrentUser')) {
       const getUser = async () => {
-        currUser = await JSON.parse(localStorage.getItem('OurSpaceCurrentUser'))
+        let currUser = await JSON.parse(localStorage.getItem('OurSpaceCurrentUser'))
         console.log('FETCHED FROM THE SESSION STORAGE , user: ')
         console.log(currUser)
         dispatch({ type: "SET_USER_TOKEN", payload: currUser })
