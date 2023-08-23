@@ -6,17 +6,17 @@ import { AuthContext } from './context/AuthContext'
 
 const App = () => {
   const { user, darkTheme, overlay, dispatch } = useContext(AuthContext)
-  useEffect(()=> {
-    if (sessionStorage.getItem('currentUser')) {
+  useEffect(() => {
+    if (localStorage.getItem('OurSpaceCurrentUser')) {
       const getUser = async () => {
-          currUser = await JSON.parse(sessionStorage.getItem('currentUser'))
-          console.log('FETCHED FROM THE SESSION STORAGE , user: ')
-          console.log(currUser)
-          dispatch({type: "SET_USER_TOKEN", payload: currUser})
+        currUser = await JSON.parse(localStorage.getItem('OurSpaceCurrentUser'))
+        console.log('FETCHED FROM THE SESSION STORAGE , user: ')
+        console.log(currUser)
+        dispatch({ type: "SET_USER_TOKEN", payload: currUser })
       }
       getUser()
-  }
-  },[])
+    }
+  }, [])
   return (
     <div className={`App ${darkTheme && `darkTheme`}`}>
       <Router>

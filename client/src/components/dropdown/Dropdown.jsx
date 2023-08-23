@@ -46,9 +46,9 @@ const Dropdown = ({ dropList }) => {
     const logoutHandler = () => {
         if (window.confirm('Are you sure you want to log out?')) {
             dispatch({ type: "LOGOUT" })
-            sessionStorage.setItem('currentUser', null)
+            localStorage.setItem('OurSpaceCurrentUser', null)
             navigate("/")
-            // sessionStorage.setItem('currentUser', user)
+            // localStorage.setItem('OurSpaceCurrentUser', user)
             // window.location.reload()
         }
     }

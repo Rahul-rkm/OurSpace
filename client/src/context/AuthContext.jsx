@@ -2,10 +2,10 @@ import { createContext, useReducer } from "react"
 import AuthReducer from "./AuthReducer"
 
 let currUser = null;
-if (sessionStorage.getItem('currentUser')) {
+if (localStorage.getItem('OurSpaceCurrentUser')) {
     const getUser = async () => {
-        currUser = await JSON.parse(sessionStorage.getItem('currentUser'))
-        console.log('FETCHED FROM THE SESSION STORAGE , user: ')
+        currUser = await JSON.parse(localStorage.getItem('OurSpaceCurrentUser'))
+        console.log('FETCHED FROM THE LOCAL STORAGE , user: ')
         console.log(currUser)
     }
     getUser()

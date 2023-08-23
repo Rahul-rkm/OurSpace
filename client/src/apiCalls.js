@@ -1,5 +1,5 @@
 import axios from "axios";
-import {loginApi} from "./axios"
+import { loginApi } from "./axios"
 // const loginApi = axios.create({
 //     baseURL: 'https://ourspace-bsx8.onrender.com'
 // })
@@ -12,7 +12,7 @@ export const loginCall = async (userCredential, dispatch) => {
         res = await loginApi.post("/api/auth/login", userCredential);
         console.log("After Login request");
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-        sessionStorage.setItem("currentUser", JSON.stringify(res.data));
+        localStorage.setItem("OurSpaceCurrentUser", JSON.stringify(res.data));
         return res.data;
     } catch (err) {
         console.log('res ERR : ', err);
