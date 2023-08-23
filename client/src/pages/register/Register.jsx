@@ -27,7 +27,7 @@ const Register = ({ userAuth }) => {
                 password: password.current.value
             }
             try {
-                const res = await axios.post("/api/auth/register", user)
+                const res = await axios.post(import.meta.env.VITE_APP_PROXY + "/api/auth/register", user)
                 console.log(password.current.value)
                 navigate("/login")
             }

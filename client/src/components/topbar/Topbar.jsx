@@ -56,7 +56,7 @@ const Topbar = () => {
         e.preventDefault()
         console.log("👉")
         const userId = searchTerm.current.value;
-        const res = await axios.get(`/api/users/search/${userId}`)
+        const res = await axios.get(import.meta.env.VITE_APP_PROXY + `/api/users/search/${userId}`)
         if (res.data.type === "SUCCESS") {
             setSearchRes(res.data.user)
         }

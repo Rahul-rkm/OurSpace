@@ -1,0 +1,8 @@
+[build]
+  publish = "build" # Change this to the directory where your build artifacts are located
+  command = "npm run build" # Replace with your build command
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://ourspace-bsx8.onrender.com/:splat"
+  status = 200

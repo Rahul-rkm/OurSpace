@@ -19,7 +19,7 @@ const Post = ({ post, myProfile, postDelete }) => {
     }
     useEffect(() => {
         const fetchUser = async () => {
-            const urlWithProxy = `/api/users?userId=${post?.userId}`
+            const urlWithProxy = import.meta.env.VITE_APP_PROXY + `/api/users?userId=${post?.userId}`
             // const response = await axios.get("/api/posts/timeline/637db9adbc2b3915dfd1a4bc");
             // const response = await fetch(urlWithProxy)
             // const data = await response.json()
@@ -41,7 +41,7 @@ const Post = ({ post, myProfile, postDelete }) => {
     }, [overlay])
     const likeHandler = async (e) => {
         try {
-            const res = await axios.put("/api/posts/" + post._id + "/like", { userId: currentUser._id })
+            const res = await axios.put(import.meta.env.VITE_APP_PROXY + "/api/posts/" + post._id + "/like", { userId: currentUser._id })
             console.log(res.data)
         }
         catch (err) {

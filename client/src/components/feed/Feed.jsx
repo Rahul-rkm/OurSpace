@@ -10,12 +10,17 @@ const Feed = ({ username }) => {
     const [reloads, setReloads] = useState(0)
     const [posts, setPosts] = useState([])
     const { user } = useContext(AuthContext);
+    const BACKEND_PROXY = import.meta.env.VITE_APP_PROXY;
     useEffect(() => {
         const fetchPosts = async () => {
-            const urlWithProxy = `/api/posts/timeline/${user._id}`
-            const response = (username) ? await axios.get(`/api/posts/profile/${username}`) : await axios.get(urlWithProxy);
-            console.log(`%cResponse`,'color: green; font-size: larger')
-            setPosts(response.data.sort((p1, p2) => {
+            const urlWithProxy = BACKEND_PROXY + `/api/posts/timeline/${user._id}`
+            console.log('BEFORE Fetching posts')
+            const response = (username) ? await axios.get(BACKEND_PROXY + `/api/posts/profile/${username}`) : await axios.get(urlWithProxy);
+            console.log(`%cResponse`, 'color: green; font-size: larger')
+            console.log('RESPONSE =============')
+            console.log(response)
+            console.log(response.data)
+            setPosts(response?.data?.sort((p1, p2) => {
                 return new Date(p2.createdAt) - new Date(p1.createdAt);
             }))
             console.log(posts)
@@ -30,7 +35,7 @@ const Feed = ({ username }) => {
     const deletePost = async (postItem) => {
         console.log(posts)
         console.log(postItem)
-        const deleteUrl = `/api/posts/${postItem._id}`
+        const deleteUrl = import.meta.env.VITE_APP_PROXY + `/api/posts/${postItem._id}`
         try {
             // await axios.delete(deleteUrl, data: details);
             await axios({

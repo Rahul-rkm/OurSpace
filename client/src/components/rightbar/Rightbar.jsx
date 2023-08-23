@@ -22,7 +22,7 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
         if (user) {
             const getFriends = async () => {
                 try {
-                    const friendList = await axios.get(`/api/users/friends/` + user._id);
+                    const friendList = await axios.get(import.meta.env.VITE_APP_PROXY + `/api/users/friends/` + user._id);
                     setFriends(friendList.data);
                 }
                 catch (err) {
@@ -36,12 +36,12 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
     const handleFollow = async () => {
         try {
             if (followed) {
-                await axios.put("/api/users/" + user?._id + "/unfollow", { userId: currentUser._id })
+                await axios.put(import.meta.env.VITE_APP_PROXY + "/api/users/" + user?._id + "/unfollow", { userId: currentUser._id })
                 dispatch({ type: "UNFOLLOW", payload: user._id })
                 setFollowed(!followed)
             }
             else {
-                await axios.put("/api/users/" + user?._id + "/follow", { userId: currentUser._id })
+                await axios.put(import.meta.env.VITE_APP_PROXY + "/api/users/" + user?._id + "/follow", { userId: currentUser._id })
                 dispatch({ type: "FOLLOW", payload: user._id })
                 setFollowed(!followed)
             }

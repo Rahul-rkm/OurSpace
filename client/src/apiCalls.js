@@ -9,7 +9,7 @@ export const loginCall = async (userCredential, dispatch) => {
     try {
         console.log("Before Login request");
         // res = await axios.post("/api/auth/login", userCredential);
-        res = await loginApi.post("/api/auth/login", userCredential);
+        res = await loginApi.post(import.meta.env.VITE_APP_PROXY + "/api/auth/login", userCredential);
         console.log("After Login request");
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         localStorage.setItem("OurSpaceCurrentUser", JSON.stringify(res.data));

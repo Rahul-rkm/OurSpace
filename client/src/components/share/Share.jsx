@@ -31,7 +31,7 @@ const Share = ({ reloadFunc }) => {
             data.append("name", fileName)
 
             try {
-                const res = await axios.post("/api/upload", data)
+                const res = await axios.post(import.meta.env.VITE_APP_PROXY + "/api/upload", data)
                 newPost.img = res.data.img;
             }
             catch (err) {
@@ -39,7 +39,7 @@ const Share = ({ reloadFunc }) => {
             }
         }
         try {
-            await axios.post("/api/posts", newPost)
+            await axios.post(import.meta.env.VITE_APP_PROXY + "/api/posts", newPost)
             // window.location.reload()
             updateReload()
         }

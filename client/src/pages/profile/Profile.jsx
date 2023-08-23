@@ -14,7 +14,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const response = await axios.get(`/api/users?username=${username}`)
+            const response = await axios.get(import.meta.env.VITE_APP_PROXY + `/api/users?username=${username}`)
             setUser(response.data)
         }
         fetchUser()
