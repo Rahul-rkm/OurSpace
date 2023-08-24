@@ -1,16 +1,19 @@
 import "./sidebar.css"
 import { Feed, OndemandVideo, Groups, Work, Bookmarks, Event, Help } from "@mui/icons-material"
 import { Users } from "../../dummyData"
+import { Link } from "react-router-dom";
 const Sidebar = () => {
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                        <Feed className="sidebarIcon" />
-                        <div className="sidebarListItemText">Feed</div>
-                    </li>
+                    <Link to="/">
+                        <li className="sidebarListItem">
+                            <Feed className="sidebarIcon" />
+                            <div className="sidebarListItemText">Feed</div>
+                        </li>
+                    </Link>
                     <li className="sidebarListItem">
                         <OndemandVideo className="sidebarIcon" />
                         <span className="sidebarListItemText">Videos</span>
