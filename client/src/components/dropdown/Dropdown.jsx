@@ -73,7 +73,7 @@ const Dropdown = ({ dropList }) => {
                                     }}
                                 ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                                 :
-                                <Link key={`mainList${index}`} to={`/profile/${user.username}`} style={{ textDecoration: 'none' }} >
+                                <Link key={`mainList${index}`} to={`/profile/${user.username}`} onClick={() => { dispatch({ type: "OVERLAY_OFF" }) }} style={{ textDecoration: 'none' }} >
                                     <li className='dropdownItem'
                                     ><span className='dropItemLeftIcon'>{item?.leftIcon}</span> {item?.text} <span className='dropItemRightIcon'>{item?.rightIcon}</span></li>
                                 </Link>

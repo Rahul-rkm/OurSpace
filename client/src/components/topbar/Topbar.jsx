@@ -38,8 +38,6 @@ const Topbar = () => {
                 { leftIcon: '❔', text: 'Help center', rightIcon: '', value: 'Help center' },
                 { leftIcon: '📩', text: 'Support Box', rightIcon: '', value: 'Support Box' },
                 { leftIcon: '📝', text: 'Report Problem', rightIcon: '', value: 'Report Problem' },
-                { leftIcon: '📩', text: 'Support Box', rightIcon: '', value: 'Support Box' },
-                { leftIcon: '📝', text: 'Report Problem', rightIcon: '', value: 'Report Problem' }
             ],
         ]
     }
