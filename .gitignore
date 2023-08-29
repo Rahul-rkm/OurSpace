@@ -1,5 +1,5 @@
 info.md
 .env
 .git
-
+*.ignore.md
 node_modules
