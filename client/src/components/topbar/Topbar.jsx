@@ -1,6 +1,6 @@
 import './topbar.css'
 import axios from 'axios'
-import { Search, Person, Chat, Notifications, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, LightMode, AppSettingsAlt, Security } from '@mui/icons-material'
+import { Search, Person, Chat, Notifications, HelpOutline, ChevronLeft, ChevronRight, Help, Settings, Logout, DarkMode, LightMode, AppSettingsAlt, Security, Lock, Report, Email } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { useContext, useState, useRef, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
@@ -31,13 +31,13 @@ const Topbar = () => {
                 { leftIcon: <ChevronLeft />, text: 'Settings', rightIcon: '', value: 'Go Back' },
                 { leftIcon: <AppSettingsAlt />, text: 'General Settings', rightIcon: '', value: 'General Settings' },
                 { leftIcon: <Security />, text: 'Privacy Settings', rightIcon: '', value: 'Privacy Settings' },
-                { leftIcon: '📜', text: 'Privacy Log', rightIcon: '', value: 'Privacy Log' },
+                { leftIcon: <Lock />, text: 'Privacy Log', rightIcon: '', value: 'Privacy Log' },
             ],
             [
                 { leftIcon: <ChevronLeft />, text: 'Help', rightIcon: '', value: 'Go Back' },
-                { leftIcon: '❔', text: 'Help center', rightIcon: '', value: 'Help center' },
-                { leftIcon: '📩', text: 'Support Box', rightIcon: '', value: 'Support Box' },
-                { leftIcon: '📝', text: 'Report Problem', rightIcon: '', value: 'Report Problem' },
+                { leftIcon: <HelpOutline />, text: 'Help center', rightIcon: '', value: 'Help center' },
+                { leftIcon: <Email />, text: 'Support Box', rightIcon: '', value: 'Support Box' },
+                { leftIcon: <Report />, text: 'Report Problem', rightIcon: '', value: 'Report Problem' },
             ],
         ]
     }
