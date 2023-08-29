@@ -26,7 +26,7 @@ const Feed = ({ username }) => {
             console.log(posts)
         }
         fetchPosts()
-    }, [username, user._id, reloads])
+    }, [username, user?._id, reloads])
 
     const updateReload = () => {
         setReloads(prev => prev + 1)
@@ -54,7 +54,7 @@ const Feed = ({ username }) => {
     return (
         <div className="feed">
             <div className="feedWrapper">
-                {(!username || username === user.username) && <Share reloadFunc={updateReload} />}
+                {(!username || username === user?.username) && <Share reloadFunc={updateReload} />}
                 {posts.map((p) => {
                     return <Post key={p._id} id={p._id} post={p}
                         myProfile={username === user.username && true}

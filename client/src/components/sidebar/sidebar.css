@@ -1,103 +1,101 @@
 .sidebar {
-    flex: 3;
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-    position: sticky;
-    top: 50px;
-    max-width: 280px;
+  flex: 3;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 50px;
+  max-width: 280px;
 }
 
 .sidebar::-webkit-scrollbar {
-    width: 10px;
-    display: none;
+  width: 10px;
+  /* display: none; */
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: rgba(180, 180, 180, 1);
-    border-radius: 10px;
+  background-color: rgba(180, 180, 180, 1);
+  border-radius: 10px;
 }
 
 .sidebar:hover::-webkit-scrollbar {
-    display: block;
-    position: fixed;
+  display: block;
+  position: fixed;
 }
 
 .sidebarWrapper {
-    padding: 20px;
+  padding: 20px;
 }
 
 .sidebarList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebarListItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    padding: 6px 5px;
-    border-radius: 5px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 6px 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .sidebarListItem:hover {
-    background-color: var(--gray3);
+  background-color: var(--gray3);
 }
 
 .sidebarIcon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .sidebarButton {
-    border: none;
-    padding: 10px;
-    font-weight: 500;
-    border-radius: 5px;
-    width: 90%;
-    min-width: fit-content;
-    cursor: pointer;
+  border: none;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 5px;
+  width: 90%;
+  min-width: fit-content;
+  cursor: pointer;
 }
 
 .sidebarHr {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 
 .sidebarFriendsList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebarFriend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    padding: 5px 3px;
-    border-radius: 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px 3px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .sidebarFriend:hover {
-    background-color: var(--gray3);
+  background-color: var(--gray3);
 }
 
 .sidebarFriendImg {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 5px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 1150px) {
-
-    .sidebar::-webkit-scrollbar {
-        width: 5px;
-    }
-
+  .sidebar::-webkit-scrollbar {
+    width: 5px;
+  }
 }

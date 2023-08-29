@@ -12,10 +12,10 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
     const [friends, setFriends] = useState([])
     const { user: currentUser, dispatch } = useContext(AuthContext)
 
-    const [followed, setFollowed] = useState(currentUser.followings.includes(user?._id))
+    const [followed, setFollowed] = useState(currentUser?.followings?.includes(user?._id))
 
     useEffect(() => {
-        setFollowed(currentUser.followings.includes(user?._id));
+        setFollowed(currentUser?.followings?.includes(user?._id));
     }, [currentUser, user?._id])
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
                 <ul className="rightbarFriendsList">
                     {Users.map(user => {
                         return (
-                            <OnlineFriend key={user.id + user.username} user={user} />
+                            <OnlineFriend key={user?.id + user?.username} user={user} />
                         )
                     })}
                 </ul>
@@ -74,7 +74,7 @@ const Rightbar = ({ user }) => {  // 👈 this user is the user whose profile is
     }
     const ProfileRightbar = () => {
         return (
-            <>{user.username !== currentUser.username && (
+            <>{user?.username !== currentUser?.username && (
                 <button className="followButton" onClick={handleFollow}>{followed ? "Unfollow" : "Follow"} {followed ? <Remove /> : <Add />} </button>
             )}
                 <h4 className="rightbarTitle">User Information</h4>
