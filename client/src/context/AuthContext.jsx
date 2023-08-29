@@ -15,7 +15,7 @@ const INITIAL_STATE = {
     user: currUser,
     isFetching: false,
     error: false,
-    darkTheme: false,
+    darkTheme: localStorage.getItem("OurSpaceTheme") === "dark" ? true : false,
     overlay: false
 }
 

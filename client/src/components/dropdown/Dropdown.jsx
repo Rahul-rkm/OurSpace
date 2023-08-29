@@ -40,6 +40,9 @@ const Dropdown = ({ dropList }) => {
     }
     const darkSwitcher = () => {
         dispatch({ type: "THEME_SWITCH" })
+        localStorage.getItem("OurSpaceTheme") === 'dark' ?
+            localStorage.setItem("OurSpaceTheme", "light") :
+            localStorage.setItem("OurSpaceTheme", "dark");
         console.log(location.hostname)
     }
 
