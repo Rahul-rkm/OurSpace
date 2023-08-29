@@ -13,7 +13,7 @@ const Feed = ({ username }) => {
     const BACKEND_PROXY = import.meta.env.VITE_APP_PROXY;
     useEffect(() => {
         const fetchPosts = async () => {
-            const urlWithProxy = BACKEND_PROXY + `/api/posts/timeline/${user._id}`
+            const urlWithProxy = BACKEND_PROXY + `/api/posts/timeline/${user?._id}`
             console.log('BEFORE Fetching posts')
             const response = (username) ? await axios.get(BACKEND_PROXY + `/api/posts/profile/${username}`) : await axios.get(urlWithProxy);
             console.log(`%cResponse`, 'color: green; font-size: larger')
