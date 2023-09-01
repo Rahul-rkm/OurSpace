@@ -10,7 +10,7 @@ import { ErrorBoundary } from "react-error-boundary"
 import ErrorFallback from '../../components/ErrorFallback/ErrorFallback'
 import { AuthContext } from '../../context/AuthContext'
 import { CameraAlt } from "@mui/icons-material"
-import { Button, IconButton, Tooltip } from "@mui/material"
+import { Button, IconButton, Tooltip, Typography } from "@mui/material"
 
 const Profile = () => {
     const PF = import.meta.env.VITE_APP_PUBLIC_FOLDER;
@@ -25,7 +25,13 @@ const Profile = () => {
         }
         fetchUser()
     }, [username])
-
+    // for edit button
+    const checkWindowSize = () => {
+        console.log(window.innerWidth)
+    }
+    useEffect(() => {
+        window.addEventListener("resize", checkWindowSize)
+    }, [])
     return (
         <>
             <Topbar />
@@ -38,7 +44,7 @@ const Profile = () => {
                                 <img className='profileCoverImg' src={(user.coverPicture) ? PF + user.coverPicture : PF + "person/noCover.jpg"} alt="coverPicture" />
                                 {
                                     authenticatedUser?.username === username &&
-                                    <Button variant='contained' sx={{ position: "absolute", right: "10px", bottom: "10px", background: "#80808057", "&:hover": { background: "#80808070" } }}> <CameraAlt sx={{ marginRight: "10px" }} /> Edit Cover Image </Button>
+                                    <Button variant='contained' sx={{ position: "absolute", right: "10px", bottom: "10px", background: "#80808057", "&:hover": { background: "#80808070" } }}> <CameraAlt sx={{ marginRight: "10px" }} /> <Typography sx={{ display: { xs: "none", sm: "inline" } }} variant='string'> Edit Cover Image </Typography> </Button>
                                 }
                             </div>
                             <div className='profilePictureContainer' style={{ position: "relative", marginTop: "-90px", width: "fit-content" }}>
